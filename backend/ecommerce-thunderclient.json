@@ -1,0 +1,84 @@
+{
+  "_type": "collection",
+  "name": "Ecommerce Backend",
+  "requests": [
+    {
+      "name": "User Signup",
+      "method": "POST",
+      "url": "http://localhost:5000/api/signup",
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"name\": \"John Doe\",\n  \"email\": \"john@test.com\",\n  \"password\": \"123456\"\n}"
+      }
+    },
+    {
+      "name": "User Login",
+      "method": "POST",
+      "url": "http://localhost:5000/api/user/login",
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"email\": \"john@test.com\",\n  \"password\": \"123456\"\n}"
+      }
+    },
+    {
+      "name": "Admin Login",
+      "method": "POST",
+      "url": "http://localhost:5000/api/login",
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"email\": \"admin@example.com\",\n  \"password\": \"adminpassword\"\n}"
+      }
+    },
+    {
+      "name": "Get Products",
+      "method": "GET",
+      "url": "http://localhost:5000/api/products"
+    },
+    {
+      "name": "Add Product (Admin)",
+      "method": "POST",
+      "url": "http://localhost:5000/api/products",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer <JWT_TOKEN>"
+        }
+      ],
+      "body": {
+        "type": "formdata",
+        "formdata": [
+          { "key": "name", "value": "Sneakers", "type": "text" },
+          { "key": "price", "value": "49.99", "type": "text" },
+          { "key": "description", "value": "Comfortable sneakers", "type": "text" },
+          { "key": "image", "type": "file", "src": "" }
+        ]
+      }
+    },
+    {
+      "name": "Edit Product (Admin)",
+      "method": "PUT",
+      "url": "http://localhost:5000/api/products/1",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer <JWT_TOKEN>"
+        }
+      ],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"name\": \"Sneakers Updated\",\n  \"price\": 59.99,\n  \"description\": \"Updated description\"\n}"
+      }
+    },
+    {
+      "name": "Delete Product (Admin)",
+      "method": "DELETE",
+      "url": "http://localhost:5000/api/products/1",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer <JWT_TOKEN>"
+        }
+      ]
+    }
+  ]
+}
